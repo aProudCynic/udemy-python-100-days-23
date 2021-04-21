@@ -26,3 +26,13 @@ class CarManager:
 
     def speed_up_cars(self):
         self.car_speed += MOVE_INCREMENT
+
+    def detect_collisions_with(self, player):
+        player_position_x, player_position_y = player.pos()
+        for car in self.cars:
+            car_position_x, car_position_y = car.pos()
+            distance_x = car_position_x - player_position_x
+            distance_y = car_position_y - player_position_y
+            if distance_x <= 20 and distance_x >= -20 and distance_y <= 10 and distance_y >= -10:
+                return True
+        return False

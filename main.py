@@ -33,7 +33,9 @@ while game_is_on:
     if random() <= 0.3:
        car_manager.initialize_car()
     car_manager.move_cars()
-    if player_is_at_top_edge_of_screen(player):
+    if car_manager.detect_collisions_with(player):
+        game_is_on = False
+    elif player_is_at_top_edge_of_screen(player):
         move_player_to_original_position(player)
         level_up()
     screen.update()
