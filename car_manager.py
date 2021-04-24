@@ -11,8 +11,7 @@ class CarManager:
     def __init__(self):
         super().__init__()
         self.car_speed = STARTING_MOVE_DISTANCE
-
-    cars = []
+        self.cars = []
 
     def initialize_car(self):
         starting_y_point = randint(-28, 28) * 10
